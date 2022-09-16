@@ -6,6 +6,7 @@
   import CorrectIcon from "../assets/correct.svg";
   import WrongIcon from "../assets/wrong.svg";
 
+  let inputRef;
   //   Question list from store
   let questionList;
 
@@ -23,13 +24,13 @@
 
   let totalQuestion = questionList.length;
 
-  console.log(questionList);
+  // console.log(questionList);
 
   const addAnswer = () => {
     const question = questionList[currentQuestionId];
     const userAnswer = currentAnswer.trim();
     // Check result here
-    console.log(question["answer"], userAnswer);
+    // console.log(question["answer"], userAnswer);
     const result = question["answer"] == userAnswer ? "correct" : "wrong";
 
     answerList.push({
@@ -37,7 +38,7 @@
       userAnswer,
       result,
     });
-    console.log(answerList);
+    // console.log(answerList);
   };
   const finishTest = () => {
     // To result Pg
@@ -49,6 +50,7 @@
     if (currentQuestionId < totalQuestion - 1) {
       currentAnswer = "";
       currentQuestionId++;
+      inputRef.focus();
     } else {
       finishTest();
     }
@@ -87,6 +89,7 @@
         <input
           type="text"
           class="form-control"
+          bind:this={inputRef}
           on:keypress={(e) => {
             if (e.keyCode == "13") {
               addAnswer();

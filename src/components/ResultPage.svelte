@@ -7,7 +7,7 @@
   let userAnswerList;
   answerStore.subscribe((value) => (userAnswerList = value));
 
-  console.log(userAnswerList);
+  // console.log(userAnswerList);
   // Count result
   const totalCorrect = userAnswerList.reduce(
     (prv, crr) => (crr["result"] == "correct" ? (prv += 1) : prv),

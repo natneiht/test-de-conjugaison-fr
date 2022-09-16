@@ -6,14 +6,15 @@ import {
   tempsOfAuxiliary,
   toutPronoms,
 } from "./staticParams";
-import { API_URL } from "./config";
+import { API_URL, API_URL_DEV } from "./config";
 
 export async function loadQuestion(num) {
-  const res = await axios.get(API_URL + num);
+  const res = await axios.post(API_URL, { total: num });
   if (res) {
+    console.log(res);
     return res;
   } else {
-    console.log(res);
+    // console.log(res);
     return null;
   }
 }

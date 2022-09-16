@@ -1,5 +1,4 @@
 <script>
-  import { each } from "svelte/internal";
   import {
     pronomsList,
     tempsSelectedTemplate,
@@ -15,12 +14,12 @@
   import { questionStore, tempsStore } from "../store.js";
   import { navigate } from "svelte-routing";
 
-  export const maxVerbList = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+  export const maxVerbList = Array.from({ length: 10 }, (_, i) => (i + 1) * 10);
   let maxVerbValue = 10;
   let storeValue;
   const modeList = Object.keys(pronomsList);
   let tempsSelected = tempsSelectedTemplate;
-  console.log(tempsSelectedTemplate);
+  // console.log(tempsSelectedTemplate);
   // Load template from loacal storage
   const localTempsData = localStorage.getItem("_temps");
   if (localTempsData) {
@@ -34,9 +33,9 @@
     return returnData;
   });
 
-  console.log(modeList);
-  console.log(tempsList);
-  console.log(tempsSelected);
+  // console.log(modeList);
+  // console.log(tempsList);
+  // console.log(tempsSelected);
 
   // Save template in local storage
 
@@ -44,7 +43,7 @@
   const initQuestion = async () => {
     // Reduce temps list
     let tempsSelectedList = [];
-    console.log(tempsSelected);
+    // console.log(tempsSelected);
     Object.keys(tempsSelected).forEach((mode) => {
       const temps = Object.keys(tempsSelected[mode]);
       const selectedTemps = [];
@@ -56,7 +55,6 @@
       }
     });
 
-    console.log(tempsSelected);
     if (tempsSelectedList.length > 0) {
       // Update temps list in store
       tempsStore.update((temps) => tempsSelected);
@@ -151,7 +149,6 @@
           id="maxVerb"
           class="max-question-select"
           bind:value={maxVerbValue}
-          on:change={() => console.log(maxVerbValue)}
         >
           {#each maxVerbList as num}
             <option value={num}>{num}</option>
