@@ -1,15 +1,15 @@
 import axios from "axios";
 import {
-  apiUrl,
   composeTemps,
   verbWithEtre,
   auxConjugaison,
   tempsOfAuxiliary,
   toutPronoms,
 } from "./staticParams";
+import { API_URL } from "./config";
 
 export async function loadQuestion(num) {
-  const res = await axios.get(apiUrl + num);
+  const res = await axios.get(API_URL + num);
   if (res) {
     return res;
   } else {

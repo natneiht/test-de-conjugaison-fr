@@ -1,4 +1,4 @@
-export const apiUrl = "http://127.0.0.1:3000/verbe/";
+// export const apiUrl = "http://127.0.0.1:3000/verbe/";
 
 export const toutPronoms = ["je", "tu", "il", "nous", "vous", "ils"];
 export const pronomsList = {
