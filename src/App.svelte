@@ -10,7 +10,7 @@
 
 <main>
   <div class="header">
-    <a href="/"><img src={HomeIcon} class="float: left;" /> </a>
+    <a href="/"><img src={HomeIcon} class="float: left;" alt="Logo" /> </a>
     <div class="header-center">
       <h4>Test de conjugaison des verbes français</h4>
     </div>

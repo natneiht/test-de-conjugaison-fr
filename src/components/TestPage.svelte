@@ -105,9 +105,7 @@
   </div>
   <div class="row">
     <div class="col-12">
-      <b>
-        <h4 />
-      </b>
+      <b />
     </div>
   </div>
 
